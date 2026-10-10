@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover events, meet your people, and make unforgettable memories at Herizon: The Legacy College Fest.">
+  <title>Herizon | The Legacy College Fest</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="welcome-heading">
+    <h1>WELCOME TO HERIZON, WHERE EVERY QUEEN MEETS HER POTENTIAL!</h1>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#" aria-label="Herizon home">HERIZON <span>THE LEGACY</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#Events">Events</a>
+      <a href="#myEvents">My Events</a>
+      <button id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">MY CAMPUS, MY MOMENTS</p>
+      <h1>Make some <span>noise.</span><br>Make memories.</h1>
+      <p>Discover events, meet your people, and make this fest unforgettable!</p>
+      <a class="button" href="#Events">Explore Events <span aria-hidden="true">↘</span></a>
+    </div>
+    <div class="hero-art" aria-label="Colorful college festival artwork">
+      <div class="sun"></div>
+      <div class="art-star star-one">✦</div>
+      <div class="art-star star-two">✳</div>
+      <div class="art-circle circle-one"></div>
+      <div class="art-circle circle-two"></div>
+      <div class="art-ticket"><span>HERIZON</span><strong>LET'S<br>GET LOUD!</strong><small>THE LEGACY · 2026</small></div>
+      <span class="art-caption">A little chaos. A lot of memories.</span>
+    </div>
+  </section>
+
+  <section class="countdown" aria-label="Fest countdown">
+    <div><p class="eyebrow">COUNTING DOWN TO THE MAGIC</p><h2>THE FEST STARTS IN</h2></div>
+    <div id="timer" class="timer" aria-live="polite">Loading countdown...</div>
+  </section>
+
+  <main id="Events" class="events-section">
+    <section class="section-title">
+      <div>
+        <p class="eyebrow">THE LINEUP</p>
+        <h2>Pick your <span>adventure.</span></h2>
+        <p id="eventCount" class="event-count">6 EVENTS</p>
+      </div>
+      <div class="toolbar">
+        <label class="sr-only" for="search">Search events</label>
+        <input id="search" type="search" placeholder="Search events by name..." aria-label="Search events by name">
+        <div id="filters" class="filters" aria-label="Filter events by category">
+          <button type="button" class="active" data-category="All">All</button>
+          <button type="button" data-category="Music">Music</button>
+          <button type="button" data-category="Arts">Arts</button>
+          <button type="button" data-category="Gaming">Gaming</button>
+          <button type="button" data-category="Culture">Culture</button>
+        </div>
+      </div>
+    </section>
+    <div id="eventGrid" class="event-grid"></div>
+    <p id="emptyMessage" class="empty-message" hidden>No events found. Try another search!</p>
+  </main>
+
+  <section id="myEvents" class="my-events">
+    <div>
+      <p class="eyebrow">YOUR PERSONAL LINEUP</p>
+      <h2>My <span>events.</span></h2>
+    </div>
+    <div id="myEventList" class="my-event-list">You haven't registered for any events yet.</div>
+  </section>
+
+  <footer>
+    <a class="logo" href="#">HERIZON <span>THE LEGACY</span></a>
+    <p>Made for the moments that matter.</p>
+    <p>Contact: <a href="mailto:festdesk@campuspulse.edu">festdesk@campuspulse.edu</a> · <a href="tel:+919876543210">+91 98765 43210</a></p>
+    <small>&copy; 2026 Herizon College Fest. All rights reserved.</small>
+  </footer>
+
+  <dialog id="registerDialog" class="dialog">
+    <button class="close" id="closeForm" type="button" aria-label="Close registration form">&times;</button>
+    <p class="eyebrow">SAVE YOUR SPOT ✦</p>
+    <h2>Join the <span>lineup.</span></h2>
+    <p id="selectedEvent" class="selected-event"></p>
+    <form id="registrationForm" novalidate>
+      <input type="hidden" id="eventId">
+      <label for="studentName">Full name</label>
+      <input id="studentName" name="studentName" type="text" placeholder="Your full name" maxlength="70" autocomplete="name" required>
+      <small id="nameError" class="error"></small>
+      <label for="studentEmail">Email address</label>
+      <input id="studentEmail" name="studentEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+      <small id="emailError" class="error"></small>
+      <label for="studentPhone">Phone number</label>
+      <input id="studentPhone" name="studentPhone" type="tel" inputmode="tel" placeholder="Your phone number" autocomplete="tel" required>
+      <small id="phoneError" class="error"></small>
+      <button class="button submit" type="submit">Confirm Registration ↗</button>
+    </form>
+  </dialog>
+
+  <dialog id="successDialog" class="dialog success-dialog">
+    <button class="close" id="closeSuccess" type="button" aria-label="Close success message">&times;</button>
+    <div class="success-icon" aria-hidden="true">✓</div>
+    <h2>You're <span>on the list!</span></h2>
+    <p id="successMessage"></p>
+    <button class="button submit" id="doneBtn" type="button">Back to Events</button>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
